@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class ClassSession extends Model
 {
@@ -36,9 +37,9 @@ class ClassSession extends Model
         return $this->belongsTo(Teacher::class);
     }
 
-    public function member(): BelongsTo
+    public function member(): BelongsToMany
     {
-        return $this->belongsTo(Member::class, "enrollment")
+        return $this->belongsToMany(Member::class, "enrollments")
             ->WithPivot("id", "date", "status")
             ->withTimestamps();
     }
