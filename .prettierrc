@@ -1,0 +1,7 @@
+{
+    "useTabs": false,
+    "tabWidth": 4,
+    "endOfLine": "lf",
+    "plugins": ["@prettier/plugin-php"],
+    "phpVersion": "8.1"
+}
